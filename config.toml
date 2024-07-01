@@ -11,8 +11,8 @@ theme = "DoIt"
 [params]
     # DoIt theme version
     version = "0.2.X"
-    description = "홍준식 사이트"
-    keywords = ["Tech Blog", "Hugo"]
+    description = "홍준식"
+    keywords = ["Tech Blog"]
 
 
     [params.search]
@@ -107,7 +107,7 @@ theme = "DoIt"
         # URL of avatar shown in home page
         avatarURL = "/images/avatar.webp"
         # subtitle shown in home page
-        subtitle = "Full-Stack(진) 주니어 개발자"
+        subtitle = "주니어 백엔드 개발자"
         # whether to use typeit animation for subtitle
         typeit = true
         social = true

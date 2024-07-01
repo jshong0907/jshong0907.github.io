@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "style.min.css",
-	"sourceRoot": "/Users/hong/Desktop/Study/github_blog",
+	"sourceRoot": "/Users/joonshik/Develop/Study/jshong0907.github.io",
 	"sources": [
 		"themes/DoIt/assets/css/style.scss",
 		"themes/DoIt/assets/css/_variables.scss",

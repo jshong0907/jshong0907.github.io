@@ -1,5 +1,5 @@
 ---
-title: '[Python] Poetry를 통한 Python 개발 환경 구축'
+title: "[Python] Poetry를 통한 Python 개발 환경 구축"
 date: 2024-07-05T18:31:44+09:00
 draft: false
 authors: ["JoonShik"]
@@ -10,6 +10,7 @@ featuredImagePreview: "thumbnail.png"
 <!--more-->
 ## Poetry란? 
 Poetry는 Python의 의존성 관리 및 패키징 도구입니다.  
+
 ## 주요 기능
 - `requirements.txt`, `setup.py`, `setup.cfg`, `MANIFEST.in` 등의 파일들을 대체하여 `pyproject.toml` 하나로 모든 설정을 관리합니다.
 - `npm`의 `package-lock.json`과 비슷한 `poetry.lock` 파일을 제공하여 각 패키지의 해시값과 의존성 트리를 기록하여 의존성 충돌을 방지하고 일관된 환경을 유지할 수 있습니다.

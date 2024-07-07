@@ -51,6 +51,14 @@ tags = [
       keepStatic = true
       # whether to make the table of the contents in the sidebar automatically collapsed
       auto = true
+  
+  [params.analytics]
+    enable = false
+    # Google Analytics
+    [params.analytics.google]
+      id = "GTM-WGRKJL8K"
+      # whether to anonymize IP
+      anonymizeIP = true
 
 [menu]
   [[menu.main]]

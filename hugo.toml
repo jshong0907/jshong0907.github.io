@@ -44,6 +44,14 @@ tags = [
     # the maximum number of lines of displayed code by default
     maxShownLines = 10
 
+  [params.page.toc]
+      # whether to enable the table of the contents
+      enable = true
+      # DoIt NEW | 0.2.9 whether to keep the static table of the contents in front of the post
+      keepStatic = true
+      # whether to make the table of the contents in the sidebar automatically collapsed
+      auto = true
+
 [menu]
   [[menu.main]]
     identifier = "posts"

@@ -5,9 +5,11 @@
         <description>Python - 태그 - Joonshik Tech Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>ko</language><lastBuildDate>Fri, 05 Jul 2024 18:31:44 &#43;0900</lastBuildDate><atom:link href="http://localhost:1313/tags/python/" rel="self" type="application/rss+xml" /><item>
     <title>[Python] Poetry를 통한 Python 개발 환경 구축</title>
-    <link>http://localhost:1313/posts/django-tutorial/01.what-is-django/</link>
+    <link>http://localhost:1313/posts/poetry/</link>
     <pubDate>Fri, 05 Jul 2024 18:31:44 &#43;0900</pubDate><author>
-                        <name>JoonShik</name><uri>http://localhost:1313/authors/joonshik</uri><email>jshong0907@gmail.com</email></author><guid>http://localhost:1313/posts/django-tutorial/01.what-is-django/</guid>
-    <description><![CDATA[Poetry는 Python의 의존성 관리 및 패키징 도구입니다.]]></description>
+                        <name>JoonShik</name><uri>http://localhost:1313/authors/joonshik</uri><email>jshong0907@gmail.com</email></author><guid>http://localhost:1313/posts/poetry/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/poetry/thumbnail.png" referrerpolicy="no-referrer">
+            </div>Poetry는 Python의 의존성 관리 및 패키징 도구입니다.]]></description>
 </item></channel>
 </rss>

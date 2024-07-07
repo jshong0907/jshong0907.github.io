@@ -23,7 +23,7 @@ tags = [
       # URL of avatar shown in home page
       avatarURL = "/images/avatar.webp"
       # subtitle shown in home page
-      subtitle = "Full-Stack(진) 주니어 개발자"
+      subtitle = "주니어 백엔드 개발자"
       # whether to use typeit animation for subtitle
       typeit = true
       social = true

@@ -10,6 +10,7 @@ theme = "DoIt"
 tags = [
   "django",
 ]
+enableRobotsTXT = true
 
 [params]
   # DoIt theme version
@@ -93,3 +94,8 @@ tags = [
   [markup.highlight]
     # false is a necessary configuration (https://github.com/dillonzq/LoveIt/issues/158)
     noClasses = false
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5

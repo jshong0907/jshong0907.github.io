@@ -4,7 +4,8 @@ date: 2024-07-07T19:59:08+09:00
 draft: false
 authors: ["JoonShik"]
 description: "Black은 Python의 엄격한 코드 스타일 자동화 도구입니다."
-tags: ["python"]
+categories: ["python"]
+tags: ["linter", "black"]
 featuredImagePreview: "thumbnail.png"
 ---
 <!--more-->

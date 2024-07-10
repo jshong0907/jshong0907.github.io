@@ -4,11 +4,53 @@
         <link>http://localhost:1313/tags/</link>
         <description>Tags - 태그 - Joonshik Tech Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>ko</language><lastBuildDate>Wed, 10 Jul 2024 16:20:07 &#43;0900</lastBuildDate><atom:link href="http://localhost:1313/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>GC</title>
+    <link>http://localhost:1313/tags/gc/</link>
+    <pubDate>Wed, 10 Jul 2024 16:20:07 &#43;0900</pubDate><author>
+        <name>저자</name>
+    </author><guid>http://localhost:1313/tags/gc/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>Python</title>
     <link>http://localhost:1313/tags/python/</link>
     <pubDate>Wed, 10 Jul 2024 16:20:07 &#43;0900</pubDate><author>
         <name>저자</name>
     </author><guid>http://localhost:1313/tags/python/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Black</title>
+    <link>http://localhost:1313/tags/black/</link>
+    <pubDate>Sun, 07 Jul 2024 19:59:08 &#43;0900</pubDate><author>
+        <name>저자</name>
+    </author><guid>http://localhost:1313/tags/black/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Linter</title>
+    <link>http://localhost:1313/tags/linter/</link>
+    <pubDate>Sun, 07 Jul 2024 19:59:08 &#43;0900</pubDate><author>
+        <name>저자</name>
+    </author><guid>http://localhost:1313/tags/linter/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Package</title>
+    <link>http://localhost:1313/tags/package/</link>
+    <pubDate>Fri, 05 Jul 2024 18:31:44 &#43;0900</pubDate><author>
+        <name>저자</name>
+    </author><guid>http://localhost:1313/tags/package/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Poetry</title>
+    <link>http://localhost:1313/tags/poetry/</link>
+    <pubDate>Fri, 05 Jul 2024 18:31:44 &#43;0900</pubDate><author>
+        <name>저자</name>
+    </author><guid>http://localhost:1313/tags/poetry/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>VirtualEnv</title>
+    <link>http://localhost:1313/tags/virtualenv/</link>
+    <pubDate>Fri, 05 Jul 2024 18:31:44 &#43;0900</pubDate><author>
+        <name>저자</name>
+    </author><guid>http://localhost:1313/tags/virtualenv/</guid>
     <description><![CDATA[]]></description>
 </item></channel>
 </rss>

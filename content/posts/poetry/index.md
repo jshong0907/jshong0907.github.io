@@ -4,7 +4,8 @@ date: 2024-07-05T18:31:44+09:00
 draft: false
 authors: ["JoonShik"]
 description: "Poetry는 Python의 의존성 관리 및 패키징 도구입니다."
-tags: ["python"]
+categories: ["python"]
+tags: ["poetry", "package", "VirtualEnv"]
 featuredImagePreview: "thumbnail.png"
 ---
 <!--more-->

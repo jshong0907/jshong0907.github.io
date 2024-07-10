@@ -7,9 +7,6 @@ title = "Joonshik Tech Blog"
 
 # Change the default theme to be use when building the site with Hugo
 theme = "DoIt"
-tags = [
-  "python",
-]
 enableRobotsTXT = true
 gitRepo = "https://github.com/jshong0907/jshong0907.github.io"
 

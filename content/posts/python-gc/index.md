@@ -4,7 +4,8 @@ date: 2024-07-10T16:20:07+09:00
 draft: false
 authors: ["JoonShik"]
 description: "가비지 컬렉션은 프로그래밍 언어에서 더 이상 필요하지 않은 객체를 자동으로 메모리에서 해제하는 메모리 관리 방법입니다. 그렇다면 Python에서는 어떻게 GC를 처리할까요?"
-tags: ["python"]
+categories: ["python"]
+tags: ["GC", "python"]
 featuredImagePreview: "thumbnail.png"
 ---
 <!--more-->

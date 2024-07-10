@@ -29,7 +29,7 @@
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-<link rel="canonical" href="http://localhost:1313/posts/black/" /><link rel="prev" href="http://localhost:1313/posts/poetry/" />
+<link rel="canonical" href="http://localhost:1313/posts/black/" /><link rel="prev" href="http://localhost:1313/posts/poetry/" /><link rel="next" href="http://localhost:1313/posts/python-gc/" />
 <link rel="stylesheet" href="/css/main.min.css"><link rel="stylesheet" href="/css/style.min.css"><script type="application/ld+json">{"@context": "https://schema.org","@type": "BlogPosting",
         "headline": "[Python] Black을 통한 코드 스타일 자동화",
         "inLanguage": "ko",
@@ -271,7 +271,7 @@
       "><span class="line"><span class="cl">pip install black</span></span></code></pre>
 </div>
 <h2 id="black-사용-방법" class="headerLink">
-    <a href="#black-%ec%82%ac%ec%9a%a9-%eb%b0%a9%eb%b2%95" class="header-mark" aria-label="Header mark for 'Black 사용 방법'"></a>Black 사용 방법</h2><div class="code-block highlight is-closed show-line-numbers  tw-group tw-my-2">
+    <a href="#black-%ec%82%ac%ec%9a%a9-%eb%b0%a9%eb%b2%95" class="header-mark" aria-label="Header mark for 'Black 사용 방법'"></a>Black 사용 방법</h2><div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
   <div class="
     code-block-title 
     
@@ -479,7 +479,7 @@
 </span></span><span class="line"><span class="cl">All <span class="k">done</span>! ✨ 🍰 ✨
 </span></span><span class="line"><span class="cl"><span class="m">1</span> file reformatted.</span></span></code></pre>
 </div>
-<div class="code-block highlight is-closed show-line-numbers  tw-group tw-my-2">
+<div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
   <div class="
     code-block-title 
     
@@ -593,7 +593,7 @@
 <h2 id="black-커스텀-설정" class="headerLink">
     <a href="#black-%ec%bb%a4%ec%8a%a4%ed%85%80-%ec%84%a4%ec%a0%95" class="header-mark" aria-label="Header mark for 'Black 커스텀 설정'"></a>Black 커스텀 설정</h2><p>black 명령어의 옵션을 통해 커스텀한 설정을 할 수도 있고 toml 파일을 통해 config를 설정할 수도 있습니다.</p>
 <h3 id="옵션을-통한-설정" class="headerLink">
-    <a href="#%ec%98%b5%ec%85%98%ec%9d%84-%ed%86%b5%ed%95%9c-%ec%84%a4%ec%a0%95" class="header-mark" aria-label="Header mark for '옵션을 통한 설정'"></a>옵션을 통한 설정</h3><div class="code-block highlight is-closed show-line-numbers  tw-group tw-my-2">
+    <a href="#%ec%98%b5%ec%85%98%ec%9d%84-%ed%86%b5%ed%95%9c-%ec%84%a4%ec%a0%95" class="header-mark" aria-label="Header mark for '옵션을 통한 설정'"></a>옵션을 통한 설정</h3><div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
   <div class="
     code-block-title 
     
@@ -797,7 +797,7 @@
       "><span class="line"><span class="cl">black example.py --skip-string-normalization</span></span></code></pre>
 </div>
 <p>위의 example.py 파일을 다시 포메팅해보면 이번에는 <code>'</code>을 <code>&quot;</code>로 변환하는 작업을 수행하지 않는 것을 볼 수 있습니다.</p>
-<div class="code-block highlight is-closed show-line-numbers  tw-group tw-my-2">
+<div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
   <div class="
     code-block-title 
     
@@ -1407,7 +1407,7 @@
       tw-scrollbar-thin
       "><span class="line"><span class="cl">cat .git/hooks/pre-commit</span></span></code></pre>
 </div>
-<div class="code-block highlight is-closed show-line-numbers  tw-group tw-my-2">
+<div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
   <div class="
     code-block-title 
     
@@ -1515,7 +1515,7 @@
 </span></span><span class="line"><span class="cl">      <span class="n">func_b</span><span class="p">()</span></span></span></code></pre>
 </div>
 <p>기존 포메팅되지 않은 <code>example.py</code> 파일을 커밋해보도록 하겠습니다.</p>
-<div class="code-block highlight is-closed show-line-numbers  tw-group tw-my-2">
+<div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
   <div class="
     code-block-title 
     
@@ -1852,7 +1852,9 @@
     </div>
 
     <div class="post-nav print:tw-hidden"><a href="/posts/poetry/" class="prev" rel="prev" title="[Python] Poetry를 통한 Python 개발 환경 구축"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"/></svg>[Python] Poetry를 통한 Python 개발 환경 구축</a></div>
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"/></svg>[Python] Poetry를 통한 Python 개발 환경 구축</a>
+            <a href="/posts/python-gc/" class="next" rel="next" title="[Python] Garbage Collection">[Python] Garbage Collection<svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></a></div>
 </div>
 </article></div>
         </main><footer class="footer">

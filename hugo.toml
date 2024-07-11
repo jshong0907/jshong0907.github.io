@@ -39,6 +39,38 @@ gitRepo = "https://github.com/jshong0907/jshong0907.github.io"
     LinkedIn = "준식-홍-b9501a218"
     Email = "jshong0907@gmail.com"
 
+  [params.search]
+    enable = true
+    # type of search engine ("algolia", "fuse")
+    type = "fuse"
+    # max index length of the chunked content
+    contentLength = 4000
+    # placeholder of the search bar
+    placeholder = ""
+    #  max number of results length
+    maxResultLength = 10
+    #  snippet length of the result
+    snippetLength = 30
+    #  HTML tag name of the highlight part in results
+    highlightTag = "em"
+    #  whether to use the absolute URL based on the baseURL in search index
+    absoluteURL = false
+    [params.search.algolia]
+      index = ""
+      appID = ""
+      searchKey = ""
+    [params.search.fuse]
+      #  https://fusejs.io/api/options.html
+      isCaseSensitive = false
+      minMatchCharLength = 2
+      findAllMatches = false
+      location = 0
+      threshold = 0.3
+      distance = 100
+      ignoreLocation = false
+      useExtendedSearch = false
+      ignoreFieldNorm = false
+
   [params.page.code]
     # the maximum number of lines of displayed code by default
     maxShownLines = 30
@@ -107,3 +139,6 @@ gitRepo = "https://github.com/jshong0907/jshong0907.github.io"
   changefreq = "weekly"
   filename = "sitemap.xml"
   priority = 0.5
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]

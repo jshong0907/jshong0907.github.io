@@ -6,23 +6,23 @@
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noodp" /><title>[Python] Garbage Collection - Joonshik Tech Blog</title><meta name="Description" content="가비지 컬렉션은 프로그래밍 언어에서 더 이상 필요하지 않은 객체를 자동으로 메모리에서 해제하는 메모리 관리 방법입니다. 그렇다면 Python에서는 어떻게 GC를 처리할까요?"><meta property="og:url" content="http://localhost:1313/posts/python-gc/">
+    <meta name="robots" content="noodp" /><title>[DevOps] 쿠버네티스란? - Joonshik Tech Blog</title><meta name="Description" content="쿠버네티스는 컨테이너화된 어플리케이션을 배포하기 위한 오픈소스 오케스트레이터입니다."><meta property="og:url" content="http://localhost:1313/posts/k8s-basic/">
   <meta property="og:site_name" content="Joonshik Tech Blog">
-  <meta property="og:title" content="[Python] Garbage Collection">
-  <meta property="og:description" content="가비지 컬렉션은 프로그래밍 언어에서 더 이상 필요하지 않은 객체를 자동으로 메모리에서 해제하는 메모리 관리 방법입니다. 그렇다면 Python에서는 어떻게 GC를 처리할까요?">
+  <meta property="og:title" content="[DevOps] 쿠버네티스란?">
+  <meta property="og:description" content="쿠버네티스는 컨테이너화된 어플리케이션을 배포하기 위한 오픈소스 오케스트레이터입니다.">
   <meta property="og:locale" content="ko">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-07-10T16:20:07+09:00">
-    <meta property="article:modified_time" content="2024-07-10T16:20:07+09:00">
-    <meta property="article:tag" content="GC">
-    <meta property="article:tag" content="Python">
-    <meta property="og:image" content="http://localhost:1313/posts/python-gc/thumbnail.png">
+    <meta property="article:published_time" content="2024-07-14T01:35:53+09:00">
+    <meta property="article:modified_time" content="2024-07-14T01:35:53+09:00">
+    <meta property="article:tag" content="Kubernetes">
+    <meta property="article:tag" content="K8s">
+    <meta property="og:image" content="http://localhost:1313/posts/k8s-basic/thumbnail.png">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="http://localhost:1313/posts/python-gc/thumbnail.png">
-  <meta name="twitter:title" content="[Python] Garbage Collection">
-  <meta name="twitter:description" content="가비지 컬렉션은 프로그래밍 언어에서 더 이상 필요하지 않은 객체를 자동으로 메모리에서 해제하는 메모리 관리 방법입니다. 그렇다면 Python에서는 어떻게 GC를 처리할까요?">
+  <meta name="twitter:image" content="http://localhost:1313/posts/k8s-basic/thumbnail.png">
+  <meta name="twitter:title" content="[DevOps] 쿠버네티스란?">
+  <meta name="twitter:description" content="쿠버네티스는 컨테이너화된 어플리케이션을 배포하기 위한 오픈소스 오케스트레이터입니다.">
 <meta name="application-name" content="Joonshik Tech Blog">
 <meta name="apple-mobile-web-app-title" content="Joonshik Tech Blog">
 
@@ -30,26 +30,26 @@
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-<link rel="canonical" href="http://localhost:1313/posts/python-gc/" /><link rel="prev" href="http://localhost:1313/posts/black/" /><link rel="next" href="http://localhost:1313/posts/python-gil/" />
+<link rel="canonical" href="http://localhost:1313/posts/k8s-basic/" /><link rel="prev" href="http://localhost:1313/posts/python-abstract-class/" />
 <link rel="stylesheet" href="/css/main.min.css"><link rel="stylesheet" href="/css/style.min.css"><script type="application/ld+json">{"@context": "https://schema.org","@type": "BlogPosting",
-        "headline": "[Python] Garbage Collection",
+        "headline": "[DevOps] 쿠버네티스란?",
         "inLanguage": "ko",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "http://localhost:1313/posts/python-gc/"
+            "@id": "http://localhost:1313/posts/k8s-basic/"
         },"image": [{
                             "@type": "ImageObject",
-                            "url": "http://localhost:1313/posts/python-gc/thumbnail.png",
+                            "url": "http://localhost:1313/posts/k8s-basic/thumbnail.png",
                             "width":  1536 ,
                             "height":  804 
-                        }],"genre": "posts","keywords":["GC","python"],"wordcount":  1305 ,
-        "url": "http://localhost:1313/posts/python-gc/","datePublished": "2024-07-10T16:20:07+09:00","dateModified": "2024-07-10T16:20:07+09:00","publisher": {
+                        }],"genre": "posts","keywords":["kubernetes","k8s"],"wordcount":  972 ,
+        "url": "http://localhost:1313/posts/k8s-basic/","datePublished": "2024-07-14T01:35:53+09:00","dateModified": "2024-07-14T01:35:53+09:00","publisher": {
             "@type": "Organization",
             "name": "저자"},"author": [{
                         "@type": "Person",
                         "name": "JoonShik",
                         "url":  null 
-                    }],"description": "가비지 컬렉션은 프로그래밍 언어에서 더 이상 필요하지 않은 객체를 자동으로 메모리에서 해제하는 메모리 관리 방법입니다. 그렇다면 Python에서는 어떻게 GC를 처리할까요?"
+                    }],"description": "쿠버네티스는 컨테이너화된 어플리케이션을 배포하기 위한 오픈소스 오케스트레이터입니다."
     }</script></head>
 
 
@@ -171,38 +171,45 @@
         <h2 class="toc-title">목차</h2>
         <div class="toc-content always-active" id="toc-content-auto"><nav id="TableOfContents">
   <ul>
-    <li><a href="#garbage-collection">Garbage Collection?</a>
+    <li><a href="#쿠버네티스란">쿠버네티스란?</a>
       <ul>
-        <li><a href="#수동-메모리-관리-방식의-문제점">수동 메모리 관리 방식의 문제점</a></li>
-        <li><a href="#가비지-컬렉션의-단점">가비지 컬렉션의 단점</a></li>
-      </ul>
-    </li>
-    <li><a href="#python-가비지-컬렉션">Python 가비지 컬렉션</a>
-      <ul>
-        <li><a href="#reference-counting">Reference Counting</a></li>
-        <li><a href="#순환-참조-문제">순환 참조 문제</a></li>
-        <li><a href="#순환-참조-해결">순환 참조 해결</a>
+        <li><a href="#개발-속도">개발 속도</a>
           <ul>
-            <li><a href="#순환-참조-판별">순환 참조 판별</a></li>
-            <li><a href="#접근-불가능한-객체-삭제">접근 불가능한 객체 삭제</a></li>
+            <li><a href="#불변성">불변성</a></li>
+            <li><a href="#선언형-컨피규레이션">선언형 컨피규레이션</a></li>
+            <li><a href="#온라인-자가-치유-시스템">온라인 자가 치유 시스템</a></li>
           </ul>
         </li>
-        <li><a href="#최적화-generation">최적화 (Generation)</a></li>
+        <li><a href="#확장성">확장성</a>
+          <ul>
+            <li><a href="#어플리케이션의-확장">어플리케이션의 확장</a></li>
+            <li><a href="#팀의-확장">팀의 확장</a></li>
+          </ul>
+        </li>
+        <li><a href="#인프라-추상화">인프라 추상화</a></li>
+        <li><a href="#효율성">효율성</a></li>
+        <li><a href="#클라우드-네이티브-에코시스템">클라우드 네이티브 에코시스템</a></li>
+      </ul>
+    </li>
+    <li><a href="#쿠버네티스-로컬-환경-구축">쿠버네티스 로컬 환경 구축</a>
+      <ul>
+        <li><a href="#kind-설치">Kind 설치</a></li>
+        <li><a href="#kind를-통한-쿠버네티스-환경-설정">Kind를 통한 쿠버네티스 환경 설정</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single print:!tw-w-full print:!tw-max-w-none print:!tw-m-0 print:!tw-p-0"><h1 class="single-title">[Python] Garbage Collection</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single print:!tw-w-full print:!tw-max-w-none print:!tw-m-0 print:!tw-p-0"><h1 class="single-title">[DevOps] 쿠버네티스란?</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><span class='author'>
         <span class='screen-reader-text'>  </span><a href='http://localhost:1313/authors/joonshik'><img class="tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px] tw-mr-1"  src="https://www.gravatar.com/avatar/3f90f554dd3b2f7299fb566f78b21bb3?s=240&amp;d=mp"   alt="JoonShik avatar" height="16" width="16">JoonShik</a></span>
-                </span>&nbsp;<span class="post-category"></span>&nbsp;<span class="post-category">분류: <a href="/categories/python/"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"/></svg>Python</a></span></div>
+                </span>&nbsp;<span class="post-category"></span>&nbsp;<span class="post-category">분류: <a href="/categories/devops/"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"/></svg>DevOps</a></span></div>
             <div class="post-meta-line"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"/></svg>&nbsp;<time datetime="2024-07-10">2024-07-10</time>&nbsp;<svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M402.3 344.9l32-32c5-5 13.7-1.5 13.7 5.7V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h273.5c7.1 0 10.7 8.6 5.7 13.7l-32 32c-1.5 1.5-3.5 2.3-5.7 2.3H48v352h352V350.5c0-2.1.8-4.1 2.3-5.6zm156.6-201.8L296.3 405.7l-90.4 10c-26.2 2.9-48.5-19.2-45.6-45.6l10-90.4L432.9 17.1c22.9-22.9 59.9-22.9 82.7 0l43.2 43.2c22.9 22.9 22.9 60 .1 82.8zM460.1 174L402 115.9 216.2 301.8l-7.3 65.3 65.3-7.3L460.1 174zm64.8-79.7l-43.2-43.2c-4.1-4.1-10.8-4.1-14.8 0L436 82l58.1 58.1 30.9-30.9c4-4.2 4-10.8-.1-14.9z"/></svg>&nbsp;<time datetime="2024-07-10">2024-07-10</time>&nbsp;<svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;1305 단어&nbsp;<svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg>&nbsp;읽는데 약 7분&nbsp;</div>
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"/></svg>&nbsp;<time datetime="2024-07-14">2024-07-14</time>&nbsp;<svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M402.3 344.9l32-32c5-5 13.7-1.5 13.7 5.7V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h273.5c7.1 0 10.7 8.6 5.7 13.7l-32 32c-1.5 1.5-3.5 2.3-5.7 2.3H48v352h352V350.5c0-2.1.8-4.1 2.3-5.6zm156.6-201.8L296.3 405.7l-90.4 10c-26.2 2.9-48.5-19.2-45.6-45.6l10-90.4L432.9 17.1c22.9-22.9 59.9-22.9 82.7 0l43.2 43.2c22.9 22.9 22.9 60 .1 82.8zM460.1 174L402 115.9 216.2 301.8l-7.3 65.3 65.3-7.3L460.1 174zm64.8-79.7l-43.2-43.2c-4.1-4.1-10.8-4.1-14.8 0L436 82l58.1 58.1 30.9-30.9c4-4.2 4-10.8-.1-14.9z"/></svg>&nbsp;<time datetime="2024-07-14">2024-07-14</time>&nbsp;<svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;972 단어&nbsp;<svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg>&nbsp;읽는데 약 5분&nbsp;</div>
         </div><div class="details toc print:!tw-block" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>목차</span>
@@ -211,51 +218,80 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#garbage-collection">Garbage Collection?</a>
+    <li><a href="#쿠버네티스란">쿠버네티스란?</a>
       <ul>
-        <li><a href="#수동-메모리-관리-방식의-문제점">수동 메모리 관리 방식의 문제점</a></li>
-        <li><a href="#가비지-컬렉션의-단점">가비지 컬렉션의 단점</a></li>
-      </ul>
-    </li>
-    <li><a href="#python-가비지-컬렉션">Python 가비지 컬렉션</a>
-      <ul>
-        <li><a href="#reference-counting">Reference Counting</a></li>
-        <li><a href="#순환-참조-문제">순환 참조 문제</a></li>
-        <li><a href="#순환-참조-해결">순환 참조 해결</a>
+        <li><a href="#개발-속도">개발 속도</a>
           <ul>
-            <li><a href="#순환-참조-판별">순환 참조 판별</a></li>
-            <li><a href="#접근-불가능한-객체-삭제">접근 불가능한 객체 삭제</a></li>
+            <li><a href="#불변성">불변성</a></li>
+            <li><a href="#선언형-컨피규레이션">선언형 컨피규레이션</a></li>
+            <li><a href="#온라인-자가-치유-시스템">온라인 자가 치유 시스템</a></li>
           </ul>
         </li>
-        <li><a href="#최적화-generation">최적화 (Generation)</a></li>
+        <li><a href="#확장성">확장성</a>
+          <ul>
+            <li><a href="#어플리케이션의-확장">어플리케이션의 확장</a></li>
+            <li><a href="#팀의-확장">팀의 확장</a></li>
+          </ul>
+        </li>
+        <li><a href="#인프라-추상화">인프라 추상화</a></li>
+        <li><a href="#효율성">효율성</a></li>
+        <li><a href="#클라우드-네이티브-에코시스템">클라우드 네이티브 에코시스템</a></li>
+      </ul>
+    </li>
+    <li><a href="#쿠버네티스-로컬-환경-구축">쿠버네티스 로컬 환경 구축</a>
+      <ul>
+        <li><a href="#kind-설치">Kind 설치</a></li>
+        <li><a href="#kind를-통한-쿠버네티스-환경-설정">Kind를 통한 쿠버네티스 환경 설정</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="garbage-collection" class="headerLink">
-    <a href="#garbage-collection" class="header-mark" aria-label="Header mark for 'Garbage Collection?'"></a>Garbage Collection?</h2><p>가비지 컬렉션은 프로그래밍 언어에서 더 이상 필요하지 않은 객체를 자동으로 메모리에서 해제하는 메모리 관리 방법입니다.</p>
-<p>그렇다면, 가비지 컬렉션은 왜 필요한 것일까요?</p>
-<h3 id="수동-메모리-관리-방식의-문제점" class="headerLink">
-    <a href="#%ec%88%98%eb%8f%99-%eb%a9%94%eb%aa%a8%eb%a6%ac-%ea%b4%80%eb%a6%ac-%eb%b0%a9%ec%8b%9d%ec%9d%98-%eb%ac%b8%ec%a0%9c%ec%a0%90" class="header-mark" aria-label="Header mark for '수동 메모리 관리 방식의 문제점'"></a>수동 메모리 관리 방식의 문제점</h3><p>C나 C++ 등의 프로그래밍 언어는 가비지 컬렉션 기능을 포함하지 않고 개발자가 <code>free</code>, <code>malloc</code>의 함수를 통해 수동으로 메모리 관리를 하도록 설계되었습니다.<br>
-하지만 수동 메모리 관리 방식은 여러 어려움을 가지고 있습니다.</p>
+            </div><div class="content" id="content"><h2 id="쿠버네티스란" class="headerLink">
+    <a href="#%ec%bf%a0%eb%b2%84%eb%84%a4%ed%8b%b0%ec%8a%a4%eb%9e%80" class="header-mark" aria-label="Header mark for '쿠버네티스란?'"></a>쿠버네티스란?</h2><p>쿠버네티스는 <code>컨테이너</code>화된 어플리케이션을 배포하기위한 <code>오픈소스 오케스트레이터</code>입니다.</p>
+<p>컨테이너에 대한 자세한 설명은 다음을 참고해주세요.</p>
+
+<div class="showcase-box column-2">
+    <div class="showcase-image">
+        <a href=/posts/k8s-container><img   src="/posts/k8s-container/thumbnail.png"   alt="[DevOps] 컨테이너란?" height="200" width="400"></a>
+    </div>
+    <h2 class="showcase-title">
+        <a href=/posts/k8s-container>[DevOps] 컨테이너란?</a>
+    </h2>
+    <p class="showcase-summary">
+        컨테이너는 호스트 운영 체제에서 응용 프로그램과 그 종속성을 포함하여 일관된 환경에서 실행될 수 있도록 격리된 경량 가상화 기술입니다.
+    </p>
+    <a class="showcase-link" href=/posts/k8s-container>
+        더 읽기...
+    </a>
+</div>
+<p>쿠버네티스는 분산 시스템에서 다음과 같은 장점을 제공합니다.</p>
 <ul>
-<li>메모리 누수: 할당한 메모리를 적절히 해제하지 않으면 불필요한 객체들이 남고 점차 더 많은 메모리를 차지하여 프로그램이 종료될 수 있습니다.</li>
-<li>이중 해제: 이미 해제된 메모리를 다시 해제하려고 하면 프로그램이 비정상적으로 동작하거나 종료될 수 있습니다.</li>
-<li>Dangling Pointer: 메모리를 해제한 후에도 해당 메모리를 참조하는 포인터가 남아있는 경우 의도하지 않은 동작이 발생할 수 있습니다.</li>
+<li>
+<p>신뢰성: 시스템의 일부분이 고장나더라도 제 기능을 수행할 수 있도록 합니다.</p>
+</li>
+<li>
+<p>가용성: 주어진 시점에 요청된 서비스를 제공합니다.</p>
+</li>
+<li>
+<p>확장성: 새로운 노드를 추가하는 수평적 확장 방식으로 시스템의 규모를 유연하게 조절할 수 있도록 합니다.</p>
+</li>
 </ul>
-<p>가비지 컬렉션은 이러한 수동 메모리 관리 문제점을 해결하기 때문에 <code>Python</code>, <code>Java</code>, <code>C#</code>, <code>Go</code> 등의 언어는 자동 가비지 컬렉션을 내장하여 제공합니다.</p>
-<h3 id="가비지-컬렉션의-단점" class="headerLink">
-    <a href="#%ea%b0%80%eb%b9%84%ec%a7%80-%ec%bb%ac%eb%a0%89%ec%85%98%ec%9d%98-%eb%8b%a8%ec%a0%90" class="header-mark" aria-label="Header mark for '가비지 컬렉션의 단점'"></a>가비지 컬렉션의 단점</h3><p>하지만 가비지 컬렉션도 몇가지 문제점을 가지고 있습니다.</p>
-<ul>
-<li>성능 오버헤드: 가비지 컬렉션을 위해 지속적으로 메모리를 확인하고 정리하는 작업을 수행하는 오버헤드가 발생합니다.</li>
-<li>메모리 오버헤드: 가비지 컬렉션을 위한 추가적인 메타데이터를 저장해야하므로 메모리 사용량이 증가합니다.</li>
-<li>최적화 어려움: 가비지 컬렉션을 통해 메모리를 관리하므로 개발자가 메모리 할당과 해제를 세밀하게 제어할 수 없습니다. 따라서 최적화가 어려울 수 있습니다.</li>
-</ul>
-<h2 id="python-가비지-컬렉션" class="headerLink">
-    <a href="#python-%ea%b0%80%eb%b9%84%ec%a7%80-%ec%bb%ac%eb%a0%89%ec%85%98" class="header-mark" aria-label="Header mark for 'Python 가비지 컬렉션'"></a>Python 가비지 컬렉션</h2><h3 id="reference-counting" class="headerLink">
-    <a href="#reference-counting" class="header-mark" aria-label="Header mark for 'Reference Counting'"></a>Reference Counting</h3><p>Python에서 가장 기본적으로 사용하는 가비지 컬렉션 알고리즘입니다.</p>
-<p>각 객체는 참조된 횟수인 <code>reference count</code> 변수를 가집니다.<br>
-객체는 참조될 때마다 reference count 값을 증가시키고 참조가 해재될 때마다 reference count를 감소시킵니다.</p>
+<div class="details admonition info open">
+    <div class="details-summary admonition-title">
+        <span class="icon"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></svg></span>Info<span class="details-icon"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></span>
+    </div>
+    <div class="details-content">
+        <div class="admonition-content"><p>가용성과 확장성은 서로를 보장하지 않습니다.</p>
+<p>라우터를 예로 들면 라우터는 패킷 유실에 신경을 쓰지 않기에 신뢰성이 낮지만 항상 서비스를 제공하므로 가용성이 높습니다.</p>
+</div></div></div>
+<p>쿠버네티스는 일반적으로 <code>개발 속도</code>, <code>확장성</code>, <code>인프라 추상화</code>, <code>효율성</code>, <code>클라우드 네이티브 에코시스템</code>을 제공합니다.</p>
+<h3 id="개발-속도" class="headerLink">
+    <a href="#%ea%b0%9c%eb%b0%9c-%ec%86%8d%eb%8f%84" class="header-mark" aria-label="Header mark for '개발 속도'"></a>개발 속도</h3><p>서비스는 높은 신뢰성과 가용성을 가지면서도 빠르게 새로운 기능을 개발할 수 있어야 합니다.</p>
+<p>쿠버네티스는 <code>불변성</code>, <code>선언형 컨피큐레이션</code>, <code>온라인 자가 치유 시스템</code>, <code>재사용 가능한 공유 라이브러리와 도구</code>를 제공하며 개발자의 개발 속도를 향상시킵니다.</p>
+<h4 id="불변성" class="headerLink">
+    <a href="#%eb%b6%88%eb%b3%80%ec%84%b1" class="header-mark" aria-label="Header mark for '불변성'"></a>불변성</h4><p>쿠버네티스는 <code>불변형 인프라</code>를 제공합니다.<br>
 <div class="details admonition note open">
     <div class="details-summary admonition-title">
         <span class="icon"><svg class="icon"
@@ -263,8 +299,37 @@
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></span>
     </div>
     <div class="details-content">
-        <div class="admonition-content"><code>sys.getrefcount</code>를 통해 해당 객체가 얼마나 참조되고 있는지 확인할 수 있습니다.<br>
-객체는 <code>sys.getrefcount</code>에 의해 참조되고 있으므로 참조 횟수는 +1만큼 추가되어 출력됩니다.</div></div></div>
+        <div class="admonition-content"><ul>
+<li>
+<p>변경 가능한 인프라: 전통적인 시스템으로 apt 명령처럼 기존 시스템에 대한 증분 업데이트를 통해 구축하는 인프라입니다.</p>
+</li>
+<li>
+<p>불변형 인프라: 컨테이너처럼 완전히 새로운 이미지를 빌드하고 업데이트 실행 시 전체 이미지를 새로운 버전의 이미지로 교체하는 인프라입니다.</p>
+</li>
+</ul>
+</div></div></div></p>
+<p>변경 가능한 인프라는 시스템에 직접적으로 변경을 적용하여 구성에 대한 생성 방법이 기록되지 않습니다.</p>
+<p>반면 불변형 인프라는 모든 설정을 기록합니다. 이러한 기록을 통해 새로운 버전에 에러가 발생한 경우 변경된 부분을 통해 해결 방법을 쉽게 파악할 수 있습니다.<br>
+또한, 기존 이미지를 수정하지 않기 때문에 기존 이미지를 통해 손쉬운 롤백이 가능하다는 장점이 있습니다.</p>
+<h4 id="선언형-컨피규레이션" class="headerLink">
+    <a href="#%ec%84%a0%ec%96%b8%ed%98%95-%ec%bb%a8%ed%94%bc%ea%b7%9c%eb%a0%88%ec%9d%b4%ec%85%98" class="header-mark" aria-label="Header mark for '선언형 컨피규레이션'"></a>선언형 컨피규레이션</h4><p>쿠버네티스의 모든 요소는 <code>선언형 컨피규레이션</code>으로 구성될 수 있습니다. (쿠버네티스는 선언형과 명령을 컨피규레이션을 모두 지원합니다.) <br>
+<div class="details admonition note open">
+    <div class="details-summary admonition-title">
+        <span class="icon"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg></span>Note<span class="details-icon"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></span>
+    </div>
+    <div class="details-content">
+        <div class="admonition-content"><ul>
+<li>
+<p>명령형 컨피규레이션: 상태를 일련의 명령문 실행으로 정의합니다.</p>
+</li>
+<li>
+<p>선언형 컨피규레이션: 상태를 원하는 최종 상태로 정의합니다.</p>
+</li>
+</ul>
+</div></div></div></p>
+<p>쿠버네티스에서 명령형 컨피규레이션의 예시는 다음과 같습니다.</p>
 <div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
   <div class="
     code-block-title 
@@ -289,7 +354,7 @@
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button>
 
     <div class="code-block-title-bar tw-w-full">
-      <p class="tw-select-none !tw-my-1">python</p>
+      <p class="tw-select-none !tw-my-1">bash</p>
     </div>
     <div class="tw-flex">
       <button 
@@ -359,22 +424,13 @@
       tw-overflow-y-hidden
       tw-overflow-x-auto
       tw-scrollbar-thin
-      "><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="nb">object</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">sys</span><span class="o">.</span><span class="n">getrefcount</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="mi">2</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">sys</span><span class="o">.</span><span class="n">getrefcount</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="mi">3</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="k">del</span> <span class="n">y</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">sys</span><span class="o">.</span><span class="n">getrefcount</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="mi">2</span></span></span></code></pre>
+      "><span class="line"><span class="cl">$ kubectl run nginx --image nginx
+</span></span><span class="line"><span class="cl">$ kubectl expose deployment nginx --port <span class="m">80</span> 
+</span></span><span class="line"><span class="cl">$ kubectl scale deployment nginx --replicas <span class="m">3</span>
+</span></span><span class="line"><span class="cl">$ kubectl delete deployment nginx</span></span></code></pre>
 </div>
-<p><code>reference count</code> 값이 0이 되면 해당 객체는 더 이상 사용되지 않는 것으로 간주되어 메모리에서 해제됩니다.</p>
-<p>Python은 Reference Counting 방법을 통해 객체가 더 이상 필요하지 않으면 즉시 해제하는 간단하고 즉각적인 메모리 해제를 제공합니다.</p>
-<p>하지만, 단순한 Reference Counting 방법은 <code>순환 참조(Circular Reference)</code> 문제를 해결하지 못합니다.</p>
-<h3 id="순환-참조-문제" class="headerLink">
-    <a href="#%ec%88%9c%ed%99%98-%ec%b0%b8%ec%a1%b0-%eb%ac%b8%ec%a0%9c" class="header-mark" aria-label="Header mark for '순환 참조 문제'"></a>순환 참조 문제</h3><p>순환 참조란 두 개 이상의 객체가 서를 참조하여 참조가 순환을 이루는 상황을 말합니다.<br>
-순환 참조가 발생하면 Reference Count로는 객체가 더 이상 사용되지 않는다는 것을 인지할 수 없습니다.</p>
+<p>위 명령들은 쿠버네티스가 해야 하는 동작을 정확히 명시합니다.</p>
+<p>쿠버네티스에서 선언형 컨피규레이션의 예시는 다음과 같습니다.</p>
 <div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
   <div class="
     code-block-title 
@@ -399,7 +455,7 @@
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button>
 
     <div class="code-block-title-bar tw-w-full">
-      <p class="tw-select-none !tw-my-1">ex1.py</p>
+      <p class="tw-select-none !tw-my-1">nginx.yaml</p>
     </div>
     <div class="tw-flex">
       <button 
@@ -469,37 +525,38 @@
       tw-overflow-y-hidden
       tw-overflow-x-auto
       tw-scrollbar-thin
-      "><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="kc">None</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;A 객체 생성됨&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;A 객체 삭제됨&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">B</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="kc">None</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;B 객체 생성됨&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;B 객체 삭제됨&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="n">b</span> <span class="o">=</span> <span class="n">B</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">b</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">del</span> <span class="n">a</span>
-</span></span><span class="line"><span class="cl">    <span class="k">del</span> <span class="n">b</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;프로그램 종료&#39;</span><span class="p">)</span></span></span></code></pre>
+      "><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span></span></span></code></pre>
 </div>
-<p>위의 <code>ex1.py</code>의 경우 b 객체는 a를 참조하지만 a는 b를 참조하지 않아 순환 참조가 아닌 상황입니다.<br>
-따라서 b의 reference count는 1이고 a의 reference count는 2가 됩니다.</p>
-<p><code>del a</code>가 실행되면 a 객체를 가리키는 변수는 삭제되지만 a 객체는 b에서 가리키고 있기 때문에 reference count 값이 1이 되고 삭제되지 않습니다.<br>
-<code>del b</code>가 실행되면 b 객체의 reference count가 0이 되며 삭제되며 a도 reference count가 0이 되며 삭제됩니다.</p>
+<p>해당 파일은 nginx 컨테이너를 80번 포트를 통해 생성하는 yaml 파일 예제입니다.</p>
+<p>해당 파일은 다음과 같은 명령어로 적용할 수 있습니다.</p>
 <div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
   <div class="
     code-block-title 
@@ -594,14 +651,44 @@
       tw-overflow-y-hidden
       tw-overflow-x-auto
       tw-scrollbar-thin
-      "><span class="line"><span class="cl">$ python ex1.py
-</span></span><span class="line"><span class="cl">A 객체 생성됨
-</span></span><span class="line"><span class="cl">B 객체 생성됨
-</span></span><span class="line"><span class="cl">B 객체 삭제됨
-</span></span><span class="line"><span class="cl">A 객체 삭제됨
-</span></span><span class="line"><span class="cl">프로그램 종료</span></span></code></pre>
+      "><span class="line"><span class="cl">$ kubectl apply -f nginx.yaml</span></span></code></pre>
 </div>
-<p><code>del a</code>를 <code>del b</code>보다 먼저 실행했지만 b 객체가 먼저 삭제되는 것고 이후 프로그램이 종료되는 것을 확인할 수 있습니다.</p>
+<p>쿠버네티스에서 모든 상태는 <code>yaml</code> 파일에 정의되고 변경이 필요하다면 파일을 수정한 후에 재적용하게됩니다.</p>
+<p>선언형 컨피규레이션은 결과물을 한눈에 이해하기 쉽고 개발자에 의한 에러 발생 가능성이 적으며 작업 내역을 추적하기 쉽고 롤백하기도 쉽다는 장점이 있습니다.</p>
+<p>선언형 컨피규레이션의 학습 난이도가 높다는 단점이 존재하지만, 일반적으로 프로덕션 환경에서 여러 개발자가 협업하는 경우 쿠버네티스는 <code>선언형 컨피규레이션 사용을 권장</code>합니다.</p>
+<h4 id="온라인-자가-치유-시스템" class="headerLink">
+    <a href="#%ec%98%a8%eb%9d%bc%ec%9d%b8-%ec%9e%90%ea%b0%80-%ec%b9%98%ec%9c%a0-%ec%8b%9c%ec%8a%a4%ed%85%9c" class="header-mark" aria-label="Header mark for '온라인 자가 치유 시스템'"></a>온라인 자가 치유 시스템</h4><p>쿠버네티스는 원하는 상태의 컨피규레이션이 설정되면 끊임없이 원하는 상태와 현재 상태를 일치시키기 위한 조치를 취합니다.<br>
+만약 수동으로 인적 개입을 통해 장애를 복구하게 되면 장애 복구에 지속적인 인적 비용이 소모되고 장애를 인지하고 대응해야하므로 일반적으로 자동으로 처리하는 것에 비하여 느리게 진행될 수밖에 없습니다.</p>
+<p>쿠버네티스는 자가 치유 시스템을 통해 비용 부담을 줄이고 신뢰성을 높입니다.</p>
+<h3 id="확장성" class="headerLink">
+    <a href="#%ed%99%95%ec%9e%a5%ec%84%b1" class="header-mark" aria-label="Header mark for '확장성'"></a>확장성</h3><h4 id="어플리케이션의-확장" class="headerLink">
+    <a href="#%ec%96%b4%ed%94%8c%eb%a6%ac%ec%bc%80%ec%9d%b4%ec%85%98%ec%9d%98-%ed%99%95%ec%9e%a5" class="header-mark" aria-label="Header mark for '어플리케이션의 확장'"></a>어플리케이션의 확장</h4><p>쿠버네티스는 선언형 컨피규레이션을 통한 <code>불변적</code>이고 <code>선언적</code>인 특성으로 어플리케이션의 손쉬운 확장을 제공합니다.</p>
+<p>어플리케이션을 확장하기 위해 단순히 컨피규레이션 파일에 복제본의 수를 증가시키면 쿠번네티스가 자동으로 파드의 수를 증가시키는 방식으로 서비스를 확장하게 됩니다.</p>
+<p>물론 쿠버네티스 클러스터 내부에 물리적인 리소스가 부족하여 복제본을 증가시키지 못할 수도 있습니다.<br>
+쿠버네티스는 어플리케이션과 클러스터를 완전히 분리하며 클러스터의 리소르를 추가하는 작업을 매우 손쉽게 처리할 수 있도록 합니다.</p>
+<p>더욱이 쿠버네티스는 각 팀에서 개별적인 서비스를 구축하도록 하기 때문에 각 팀의 리소스 사용량을 파악하여 이후 필요한 컴퓨팅 리소스를 더 정확히 예측하고 하드웨어 리소스를 미리 확보할 수 있도록 합니다.</p>
+<h4 id="팀의-확장" class="headerLink">
+    <a href="#%ed%8c%80%ec%9d%98-%ed%99%95%ec%9e%a5" class="header-mark" aria-label="Header mark for '팀의 확장'"></a>팀의 확장</h4><p>일반적으로 서비스를 개발하기 위해 적절한 팀의 규모는 6~8명 정도입니다.<br>
+규모가 너무 커지면 공통된 목적을 갖고 팀 상황을 공유하는데 어려움을 겪게 됩니다.</p>
+<p>하지만 서비스 규모가 커질수록 더 많은 인원이 필요하게 됩니다.</p>
+<p>이를 해결하기 위해 일반적으로는 어플리케이션을 서비스 기준으로 분리하고 각 팀은 개별 마이크로서비스를 개발하는 방식을 사용하게 됩니다.<br>
+쿠버네티스는 이러한 마이크로서비스 아키텍처를 더 쉽게 구축할 수 있도록 다양한 추상화를 제공하여 팀 간의 손쉬운 분리와 확장을 제공합니다.</p>
+<h3 id="인프라-추상화" class="headerLink">
+    <a href="#%ec%9d%b8%ed%94%84%eb%9d%bc-%ec%b6%94%ec%83%81%ed%99%94" class="header-mark" aria-label="Header mark for '인프라 추상화'"></a>인프라 추상화</h3><p>쿠버네티스는 인프라 리소스(서버, 네트워크, 스토리지 등)을 추상화하여 어플리케이션 배포와 관리를 단순화합니다.</p>
+<p>개발자는 클라우드 환경이나 물리적 인프라의 세부 사항에 대하여 고려할 필요 없이 고수준의 API를 통해 서비스를 개발하고, 쿠버네티스가 자원을 효율적으로 관리하고 할당하게됩니다.</p>
+<h3 id="효율성" class="headerLink">
+    <a href="#%ed%9a%a8%ec%9c%a8%ec%84%b1" class="header-mark" aria-label="Header mark for '효율성'"></a>효율성</h3><p>쿠버네티스에서 서비스는 격리되어있기에 여러 서비스는 서로 영향을 주지 않고 동일한 서버에 배포할 수 있습니다.<br>
+이는 더 적은 서버로 여러 서비스를 제공할 수 있도록 합니다.</p>
+<h3 id="클라우드-네이티브-에코시스템" class="headerLink">
+    <a href="#%ed%81%b4%eb%9d%bc%ec%9a%b0%eb%93%9c-%eb%84%a4%ec%9d%b4%ed%8b%b0%eb%b8%8c-%ec%97%90%ec%bd%94%ec%8b%9c%ec%8a%a4%ed%85%9c" class="header-mark" aria-label="Header mark for '클라우드 네이티브 에코시스템'"></a>클라우드 네이티브 에코시스템</h3><p>쿠버네티스는 클라우드 네이티브 애플리케이션 개발을 촉진하는 다양한 도구와 서비스들을 포함한 생태계를 제공합니다.<br>
+예를 들어, 모니터링, 로깅, 보안, CI/CD 도구 등 다양한 추가 기능을 쿠버네티스와 통합하여 사용할 수 있습니다.</p>
+<p>이는 개발 및 운영 프로세스를 자동화하고, 안정성과 관리 용이성을 향상시키는 데 도움이 됩니다.</p>
+<h2 id="쿠버네티스-로컬-환경-구축" class="headerLink">
+    <a href="#%ec%bf%a0%eb%b2%84%eb%84%a4%ed%8b%b0%ec%8a%a4-%eb%a1%9c%ec%bb%ac-%ed%99%98%ea%b2%bd-%ea%b5%ac%ec%b6%95" class="header-mark" aria-label="Header mark for '쿠버네티스 로컬 환경 구축'"></a>쿠버네티스 로컬 환경 구축</h2><p>쿠버네티스 실습 환경 구축을 위해 로컬 환경에 서비스를 구축하도록 하겠습니다.</p>
+<p>로컬에 쿠버네티스 환경 구축을 위해서는 <code>미니큐브(minikube)</code>, <code>가상머신</code>, <code>kind(Kubernetes in docker)</code>가 존재하는데 도커를 사용하여 손쉽게 설치 및 관리할 수 있는 <code>kind</code>를 활용하여 쿠버네티스 클러스터를 구축하도록 하겠습니다.</p>
+<h3 id="kind-설치" class="headerLink">
+    <a href="#kind-%ec%84%a4%ec%b9%98" class="header-mark" aria-label="Header mark for 'Kind 설치'"></a>Kind 설치</h3><p>로컬 환경에 docker는 설치되어있어야 합니다.</p>
+<p>만약 <code>go</code>가 설치되어 있다면 다음과 같이 간단하게 설치 가능합니다.</p>
 <div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
   <div class="
     code-block-title 
@@ -626,7 +713,7 @@
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button>
 
     <div class="code-block-title-bar tw-w-full">
-      <p class="tw-select-none !tw-my-1">ex2.py</p>
+      <p class="tw-select-none !tw-my-1">bash</p>
     </div>
     <div class="tw-flex">
       <button 
@@ -696,39 +783,9 @@
       tw-overflow-y-hidden
       tw-overflow-x-auto
       tw-scrollbar-thin
-      "><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="kc">None</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;A 객체 생성됨&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;A 객체 삭제됨&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">B</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="kc">None</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;B 객체 생성됨&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;B 객체 삭제됨&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="n">b</span> <span class="o">=</span> <span class="n">B</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">a</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">b</span>
-</span></span><span class="line"><span class="cl">    <span class="n">b</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">del</span> <span class="n">a</span>
-</span></span><span class="line"><span class="cl">    <span class="k">del</span> <span class="n">b</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;프로그램 종료&#39;</span><span class="p">)</span></span></span></code></pre>
+      "><span class="line"><span class="cl">$ go install sigs.k8s.io/kind@v0.20.0</span></span></code></pre>
 </div>
-<p>위의 <code>ex2.py</code>의 경우 b 객체는 a를 참조하고 a는 b를 참조하여 순환 참조인 상황입니다.<br>
-따라서 b와 a의 reference count는 2가 됩니다.</p>
-<p><code>del a</code>가 실행되면 a 객체를 가리키는 변수는 삭제되지만 a 객체는 b에서 가리키고 있기 때문에 reference count 값이 1이 되고 삭제되지 않습니다.</p>
-<p><code>del b</code>가 실행되면 b 객체를 가리키는 변수는 삭제되지만 b 객체는 a에서 가리키고 있기 때문에 reference count 값이 1이 되고 삭제되지 않습니다.</p>
+<p><code>Mac OS</code>이고 <code>brew</code>가 설치되어있다면 <code>brew</code>를 통한 설치도 지원하고 있습니다.</p>
 <div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
   <div class="
     code-block-title 
@@ -823,30 +880,11 @@
       tw-overflow-y-hidden
       tw-overflow-x-auto
       tw-scrollbar-thin
-      "><span class="line"><span class="cl">$ python ex2.py
-</span></span><span class="line"><span class="cl">A 객체 생성됨
-</span></span><span class="line"><span class="cl">B 객체 생성됨
-</span></span><span class="line"><span class="cl">프로그램 종료
-</span></span><span class="line"><span class="cl">A 객체 삭제됨
-</span></span><span class="line"><span class="cl">B 객체 삭제됨</span></span></code></pre>
+      "><span class="line"><span class="cl">$ berw install kind</span></span></code></pre>
 </div>
-<p>따라서 del 명령어로는 a와 b 객체가 삭제되지 않고, 프로그램이 종료된 이후 객체가 삭제됩니다.<br>
-이를 통해 순환 참조 객체는 reference count를 통해 삭제할 수 없다는 것을 확인할 수 있습니다.</p>
-<div class="details admonition tip open">
-    <div class="details-summary admonition-title">
-        <span class="icon"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M96.06 454.35c.01 6.29 1.87 12.45 5.36 17.69l17.09 25.69a31.99 31.99 0 0 0 26.64 14.28h61.71a31.99 31.99 0 0 0 26.64-14.28l17.09-25.69a31.989 31.989 0 0 0 5.36-17.69l.04-38.35H96.01l.05 38.35zM0 176c0 44.37 16.45 84.85 43.56 115.78 16.52 18.85 42.36 58.23 52.21 91.45.04.26.07.52.11.78h160.24c.04-.26.07-.51.11-.78 9.85-33.22 35.69-72.6 52.21-91.45C335.55 260.85 352 220.37 352 176 352 78.61 272.91-.3 175.45 0 73.44.31 0 82.97 0 176zm176-80c-44.11 0-80 35.89-80 80 0 8.84-7.16 16-16 16s-16-7.16-16-16c0-61.76 50.24-112 112-112 8.84 0 16 7.16 16 16s-7.16 16-16 16z"/></svg></span>Tip<span class="details-icon"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></span>
-    </div>
-    <div class="details-content">
-        <div class="admonition-content">위의 예제는 Python 코드 시각화 툴인 <a href="https://pythontutor.com/python-compiler.html#mode=edit" target="_blank" rel="noopener noreferrer">Python Tutor</a>에서 확인하면 더 쉽게 이해할 수 있습니다.</div></div></div>
-<h3 id="순환-참조-해결" class="headerLink">
-    <a href="#%ec%88%9c%ed%99%98-%ec%b0%b8%ec%a1%b0-%ed%95%b4%ea%b2%b0" class="header-mark" aria-label="Header mark for '순환 참조 해결'"></a>순환 참조 해결</h3><p>Python의 가비지 컬렉터인 <code>gc</code> 모듈은 주기적으로 힙 메모리를 검사하여 순환 참조로 인해 reference count가 0이 되지 않는 객체를 찾아내고 해제합니다.</p>
-<h4 id="순환-참조-판별" class="headerLink">
-    <a href="#%ec%88%9c%ed%99%98-%ec%b0%b8%ec%a1%b0-%ed%8c%90%eb%b3%84" class="header-mark" aria-label="Header mark for '순환 참조 판별'"></a>순환 참조 판별</h4><p>그렇다면, <code>gc</code> 모듈은 어떻게 순환 참조로 인해 reference count가 0이 되지 않는 접근 불가능한 객체를 판별할까요?</p>
-<p>우선, 순환 참조는 컨테이너 객체(array, dictionary, list, class)에서만 발생할 수 있습니다.<br>
-따라서 gc 모듈은 컨테이너 객체에만 집중하게 됩니다.</p>
-<p>다음은 순환 참조중인 객체를 삭제하는 예제입니다.</p>
+<p>이외는 <a href="https://kind.sigs.k8s.io/docs/user/quick-start/#installation" target="_blank" rel="noopener noreferrer">kind 설치 문서</a>를 참조해주세요.</p>
+<h3 id="kind를-통한-쿠버네티스-환경-설정" class="headerLink">
+    <a href="#kind%eb%a5%bc-%ed%86%b5%ed%95%9c-%ec%bf%a0%eb%b2%84%eb%84%a4%ed%8b%b0%ec%8a%a4-%ed%99%98%ea%b2%bd-%ec%84%a4%ec%a0%95" class="header-mark" aria-label="Header mark for 'Kind를 통한 쿠버네티스 환경 설정'"></a>Kind를 통한 쿠버네티스 환경 설정</h3><p>다음과 같이 <code>kind create</code> 명령을 통해 클러스터 생성이 가능합니다.</p>
 <div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
   <div class="
     code-block-title 
@@ -871,7 +909,7 @@
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button>
 
     <div class="code-block-title-bar tw-w-full">
-      <p class="tw-select-none !tw-my-1">python</p>
+      <p class="tw-select-none !tw-my-1">bash</p>
     </div>
     <div class="tw-flex">
       <button 
@@ -941,62 +979,16 @@
       tw-overflow-y-hidden
       tw-overflow-x-auto
       tw-scrollbar-thin
-      "><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">gc</span>
+      "><span class="line"><span class="cl">$ kind create cluster
+</span></span><span class="line"><span class="cl">$ kind get clusters
+</span></span><span class="line"><span class="cl">kind
+</span></span><span class="line"><span class="cl">$ kubectl cluster-info
+</span></span><span class="line"><span class="cl">Kubernetes control plane is running at https://127.0.0.1:63736
+</span></span><span class="line"><span class="cl">CoreDNS is running at https://127.0.0.1:63736/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="k">class</span> <span class="nc">Link</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl"><span class="o">...</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">next_link</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl"><span class="o">...</span>        <span class="bp">self</span><span class="o">.</span><span class="n">next_link</span> <span class="o">=</span> <span class="n">next_link</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">link_3</span> <span class="o">=</span> <span class="n">Link</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">link_2</span> <span class="o">=</span> <span class="n">Link</span><span class="p">(</span><span class="n">link_3</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">link_1</span> <span class="o">=</span> <span class="n">Link</span><span class="p">(</span><span class="n">link_2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">link_3</span><span class="o">.</span><span class="n">next_link</span> <span class="o">=</span> <span class="n">link_1</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">A</span> <span class="o">=</span> <span class="n">link_1</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># link_1, link_2, link_3가 삭제되더라도 A에서 여전히 참조중이므로 삭제되지 않음</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="k">del</span> <span class="n">link_1</span><span class="p">,</span> <span class="n">link_2</span><span class="p">,</span> <span class="n">link_3</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">link_4</span> <span class="o">=</span> <span class="n">Link</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">link_4</span><span class="o">.</span><span class="n">next_link</span> <span class="o">=</span> <span class="n">link_4</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="k">del</span> <span class="n">link_4</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 순환 참조중인 접근 불가능한 link_4 객체 수집 (객체의 __dict__ 객체도 함께 수집)</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="mi">2</span></span></span></code></pre>
+</span></span><span class="line"><span class="cl">To further debug and diagnose cluster problems, use <span class="s1">&#39;kubectl cluster-info dump&#39;</span>.</span></span></code></pre>
 </div>
-<p><code>link_1</code>, <code>link_2</code>, <code>link_3</code>는 서로 순환 참조하고 삭제되었지만 <code>A</code>가 <code>link_1</code>을 참조하고 있어 접근 가능하고 삭제되면 안되는 경우입니다.</p>
-<p>반면 <code>link_4</code>는 스스로를 참조하는 순환 참조 상황이지만 삭제되어 해제되어야 하는 경우입니다.</p>
-<p>우선 gc는 모든 컨테이너 객체를 스캔할 객체 리스트(<code>Objects to Scan</code>)에 저장합니다.<br>
-저장된 모든 객체는 reference count 값을 복사하여 <code>gc_ref</code>라는 접근 불가능 여부 판별을 위한 추가 필드를 가지게 됩니다.</p>
-<p><img class="tw-inline" loading="lazy" src="/posts/python-gc/identify_ref_count_01.png"   alt="접근 불가능한 객체 판별 1" height="210" width="720"></p>
-<p>이후 gc는 스캔할 객체 리스트를 순환하며 한 객체가 참조하는 다른 객체들의 <code>gc_ref</code>값을 1만큼 줄입니다.</p>
-<p>즉, 우선 <code>link_1</code>을 확인하고 <code>link_1</code>에서 참조하는 <code>link_2</code>의 <code>gc_ref</code> 값을 0으로 줄이고 이후 <code>link_2</code>를 확인하고 <code>link_2</code>에서 참조하는 <code>link_3</code>의 <code>gc_ref</code> 값을 0으로 줄이는 방식입니다.</p>
-<p><img class="tw-inline" loading="lazy" src="/posts/python-gc/identify_ref_count_02.png"   alt="접근 불가능한 객체 판별 2" height="210" width="720"></p>
-<p>여기서, <code>gc_ref</code> 값이 0인 객체들은 컨테이너 객체 외부에서 현재 참조되고 있지 않기에 접근 불가능 할수도 있는 객체들입니다.<br>
-하지만 <code>link_2</code>와 같이 외부에서 연결된 <code>link_1</code>과 연결될 수 있기에 무조건 접근 불가능한 것은 아닙니다.<br>
-반면 <code>gc_ref</code> 값이 0보다 크다면 모두 접근 가능한 객체입니다.</p>
-<p>우선 gc는 스캔할 객체 리스트를 순환하며 <code>gc_ref</code>값이 0인 객체들을 접근 불가능할 수도 있는 리스트(<code>Unreachable ?</code>)에 옮깁니다.</p>
-<p>다음은 <code>link_1</code>과 <code>link_2</code>는 아직 순환하지 않고 <code>link_3</code>, <code>link_4</code>만 순환한 상태입니다.</p>
-<p><img class="tw-inline" loading="lazy" src="/posts/python-gc/identify_ref_count_03.png"   alt="접근 불가능한 객체 판별 3" height="210" width="720"></p>
-<p>여기서 gc가 <code>link_1</code> 객체를 순환하면 <code>link_1</code>의 <code>gc_ref</code>가 0보다 크기 때문에 접근 가능한 객체로 판별하고 <code>link_1</code>에서 접근 가능한 모든 객체를 찾아 <code>gc_ref</code>를 1로 설정하여 접근 가능하도록 표시하게 됩니다.</p>
-<p>또한, 한번 순환한 객체를 다시 순환하지 않기 위해 방문 여부를 체크해둡니다.</p>
-<p><img class="tw-inline" loading="lazy" src="/posts/python-gc/identify_ref_count_05.png"   alt="접근 불가능한 객체 판별 5" height="210" width="720"></p>
-<p>모든 순환이 완료되면 gc는 접근 가능한 객체와 접근 불가능한 객체를 구분할 수 있습니다.</p>
-<h4 id="접근-불가능한-객체-삭제" class="headerLink">
-    <a href="#%ec%a0%91%ea%b7%bc-%eb%b6%88%ea%b0%80%eb%8a%a5%ed%95%9c-%ea%b0%9d%ec%b2%b4-%ec%82%ad%ec%a0%9c" class="header-mark" aria-label="Header mark for '접근 불가능한 객체 삭제'"></a>접근 불가능한 객체 삭제</h4><p>gc가 모든 접근 불가능한 객체를 판별하면, 매우 작은 프로세스를 시작하여 객체가 종료될 시 발생하는 모든 finalizer를 호출하고 reference count를 0으로 줄여 해당 객체를 삭제합니다.</p>
-<p>이를 통해 Python은 순환 객체를 판별하고 삭제할 수 있습니다.</p>
-<h3 id="최적화-generation" class="headerLink">
-    <a href="#%ec%b5%9c%ec%a0%81%ed%99%94-generation" class="header-mark" aria-label="Header mark for '최적화 (Generation)'"></a>최적화 (Generation)</h3><p>그렇다면 순환 참조를 해결하기 위한 가비지 컬렉션은 언제 동작할까요?</p>
-<p>Python의 가비지 컬렉션은 모든 컨테이너 객체를 순환해야하기 때문에 매번 동작하게 되면 큰 오버헤드가 발생합니다.</p>
-<p>gc는 이를 위해 유명한 최적화 방법인 <code>generations</code> 기법을 사용합니다.<br>
-<code>generations</code>의 가장 핵심 아이디어는 대부분의 객체는 매우 짧은 생명 주기를 가지고있고 생성된 이후 곧 수집된다는 것입니다.<br>
-이를 통해 모든 컨테이너 객체는 3가지 세대로 구분되게 됩니다.</p>
-<ul>
-<li>0세대: 바로 생성된 객체</li>
-<li>1세대: 0세대 중 접근 불가능한 객체 판별 알고리즘에서 수집되지 않은 객체 (수집 빈도 적음)</li>
-<li>2세대: 1세대 중 접근 불가능한 객체 판별 알고리즘에서 수집되지 않은 객체 (수집 빈도 매우 적음)</li>
-</ul>
-<p>gc는 0세대일수록 더 빠르게 수집된다는 <code>generational hypothesis</code>에 근거하여 0세대일수록 더 자주 가비지 컬렉션을 수행하도록 설계되었습니다.</p>
-<p>gc는 각 세대에 threshold값을 설정하고 특정 세대에 threshold값 만큼의 객체가 존재한다면 가비지 컬렉션을 수행합니다.</p>
+<p>위의 구성으로는 단일 노드의 쿠버네티스 클러스터가 구축되는데, kind를 통해 여러 노드의 클러스터 환경을 구축해볼 수도 있습니다.</p>
 <div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
   <div class="
     code-block-title 
@@ -1021,7 +1013,7 @@
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button>
 
     <div class="code-block-title-bar tw-w-full">
-      <p class="tw-select-none !tw-my-1">python</p>
+      <p class="tw-select-none !tw-my-1">kind-config.yaml</p>
     </div>
     <div class="tw-flex">
       <button 
@@ -1091,12 +1083,15 @@
       tw-overflow-y-hidden
       tw-overflow-x-auto
       tw-scrollbar-thin
-      "><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">gc</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">gc</span><span class="o">.</span><span class="n">get_threshold</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="mi">700</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span></span></span></code></pre>
+      "><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Cluster  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">kind.x-k8s.io/v1alpha4  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">nodes</span><span class="p">:</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l">control-plane  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l">worker  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l">worker</span></span></span></code></pre>
 </div>
-<p>위는 gc의 기본 threshold 값이고 0세대에 700, 1세대에 10, 2세대에 10으로 설정되어 있는 것을 확인할 수 있습니다.<br>
-여기서 0세대의 threshold는 할당되었지만 삭제되지 않은 객체의 수를 의미하고 이후부터 1세대는 0세대가 가비지 컬렉션을 수행하고 접근 불가능한 객체가 있다면 +1을 하고 만약 1세대가 10만큼 되어 가비지 컬렉션을 수행하고 접근 불가능한 객체가 있다면 2세대에 +1을 하는 방식입니다.</p>
+<p>위는 1개의 컨트롤 플레인과 2개의 워커 노드를 생성하는 설정 파일입니다.</p>
+<p>다음과 같이 클러스터를 설정 퐈일과 함께 생성하도록 하겠습니다.</p>
 <div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
   <div class="
     code-block-title 
@@ -1121,7 +1116,7 @@
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button>
 
     <div class="code-block-title-bar tw-w-full">
-      <p class="tw-select-none !tw-my-1">python</p>
+      <p class="tw-select-none !tw-my-1">bash</p>
     </div>
     <div class="tw-flex">
       <button 
@@ -1191,44 +1186,120 @@
       tw-overflow-y-hidden
       tw-overflow-x-auto
       tw-scrollbar-thin
-      "><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">gc</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="k">class</span> <span class="nc">MyObj</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl"><span class="o">...</span>     <span class="k">pass</span>
-</span></span><span class="line"><span class="cl"><span class="o">...</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="mi">0</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">gc</span><span class="o">.</span><span class="n">get_count</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">MyObj</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">self</span> <span class="o">=</span> <span class="n">x</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">MyObj</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">y</span><span class="o">.</span><span class="n">self</span> <span class="o">=</span> <span class="n">y</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">gc</span><span class="o">.</span><span class="n">get_objects</span><span class="p">(</span><span class="n">generation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">MyObj</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x105430b90</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">MyObj</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x105430f90</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">gc</span><span class="o">.</span><span class="n">get_count</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="mi">27</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">(</span><span class="n">generation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="mi">0</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">gc</span><span class="o">.</span><span class="n">get_objects</span><span class="p">(</span><span class="n">generation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">[]</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">gc</span><span class="o">.</span><span class="n">get_objects</span><span class="p">(</span><span class="n">generation</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="o">...</span><span class="p">,</span>  <span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">MyObj</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x104e41210</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">MyObj</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x104e41550</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">gc</span><span class="o">.</span><span class="n">get_count</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></span></span></code></pre>
+      "><span class="line"><span class="cl">$ kind create cluster --config kind-config.yaml</span></span></code></pre>
 </div>
-<p>위와 같이 <code>gc.get_objects(generation=NUM)</code>을 통해 객체 리스트를 확인할 수도 있고 <code>gc.collect(generation=NUM)</code>을 통해 직접 가비지 컬렉션을 할 수도 있습니다.</p></div>
+<p>이제 노드가 여러개 확인되는 것을 볼 수 있습니다.</p>
+<div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
+  <div class="
+    code-block-title 
+    
+    tw-flex 
+    tw-flex-row 
+    tw-justify-between 
+    tw-w-full tw-bg-bgColor-secondary
+    ">      
+    <button 
+      class="
+        tw-select-none 
+        tw-mx-2 
+        tw-block
+        group-[.is-open]:tw-rotate-90
+        tw-transition-[transform] 
+        tw-duration-500 
+        tw-ease-in-out
+        print:!tw-hidden"
+      disabled
+      aria-hidden="true"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button>
+
+    <div class="code-block-title-bar tw-w-full">
+      <p class="tw-select-none !tw-my-1">bash</p>
+    </div>
+    <div class="tw-flex">
+      <button 
+        class="
+          line-number-button
+          tw-select-none 
+          tw-mx-2 
+          tw-hidden 
+          group-[.is-open]:tw-block 
+          group-[.show-line-numbers]:tw-text-fgColor-link 
+          print:!tw-hidden" 
+        title="Toggle line numbers"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M61.77 401l17.5-20.15a19.92 19.92 0 0 0 5.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8h22.83a157.41 157.41 0 0 0-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33 0 15.94 2.44 15.94 9.09 0 4.72-4.2 8.22-14.36 8.22a41.54 41.54 0 0 1-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16 0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-160H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zm0 320H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zM16 160h64a8 8 0 0 0 8-8v-16a8 8 0 0 0-8-8H64V40a8 8 0 0 0-8-8H32a8 8 0 0 0-7.14 4.42l-8 16A8 8 0 0 0 24 64h8v64H16a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8zm-3.91 160H80a8 8 0 0 0 8-8v-16a8 8 0 0 0-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44 0-29.06-25-39.56-44.47-39.56-21.36 0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44 0 0 1 9.46-3.84c3.33 0 9.28 1.56 9.28 8.75C51 248.19 0 257.31 0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
+
+      <button 
+        class="
+          wrap-code-button
+          tw-select-none 
+          tw-mx-2 
+          tw-hidden 
+          group-[.is-open]:tw-block 
+          group-[.is-wrap]:tw-text-fgColor-link 
+          print:!tw-hidden" 
+        title="Toggle code wrap"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
+      
+      <button 
+        class="
+          copy-code-button
+          tw-select-none
+          tw-mx-2 
+          tw-hidden
+          group-[.is-open]:tw-block
+          hover:tw-text-fgColor-link 
+          print:!tw-hidden"
+        title="Copy code">
+          <span class="copy-icon tw-block"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"/></svg></span>
+          <span class="check-icon tw-hidden"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
+      </button>
+        
+      <button 
+        class="
+          tw-select-none 
+          tw-mx-2 
+          tw-block 
+          group-[.is-open]:tw-hidden 
+          print:!tw-hidden" 
+        disabled
+        aria-hidden="true"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button>
+    </div>
+  </div>
+  <pre style="counter-reset: codeblock;" class="tw-block tw-m-0 tw-p-0"><code 
+    id="codeblock-id-9" 
+    class="
+      chroma 
+      !tw-block 
+      tw-p-0
+      tw-m-0
+      tw-transition-[max-height] 
+      tw-duration-500 
+      tw-ease-in-out 
+      group-[.is-closed]:!tw-max-h-0 
+      group-[.is-wrap]:tw-text-wrap
+      tw-overflow-y-hidden
+      tw-overflow-x-auto
+      tw-scrollbar-thin
+      "><span class="line"><span class="cl">$ docker container ls
+</span></span><span class="line"><span class="cl">c93f406952f0   kindest/node:v1.27.3   <span class="s2">&#34;/usr/local/bin/entr…&#34;</span>   <span class="m">44</span> seconds ago   Up <span class="m">40</span> seconds   127.0.0.1:63736-&gt;6443/tcp                    kind-control-plane
+</span></span><span class="line"><span class="cl">daff6046cfb4   kindest/node:v1.27.3   <span class="s2">&#34;/usr/local/bin/entr…&#34;</span>   <span class="m">44</span> seconds ago   Up <span class="m">40</span> seconds                                                kind-worker
+</span></span><span class="line"><span class="cl">d80628741d43   kindest/node:v1.27.3   <span class="s2">&#34;/usr/local/bin/entr…&#34;</span>   <span class="m">44</span> seconds ago   Up <span class="m">40</span> seconds                                                kind-worker2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ kubectl get nodes
+</span></span><span class="line"><span class="cl">NAME                 STATUS   ROLES           AGE   VERSION
+</span></span><span class="line"><span class="cl">kind-control-plane   Ready    control-plane   51s   v1.27.3
+</span></span><span class="line"><span class="cl">kind-worker          Ready    &lt;none&gt;          28s   v1.27.3
+</span></span><span class="line"><span class="cl">kind-worker2         Ready    &lt;none&gt;          32s   v1.27.3</span></span></code></pre>
+</div></div>
 
         <div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>2024-07-10 수정</span>
+                <span>2024-07-14 수정</span>
             </div>
             <div class="post-info-license"></div>
         </div>
@@ -1240,16 +1311,14 @@
 
     <div class="post-info-more">
         <section class="post-tags"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"/></svg>&nbsp;<a href="/tags/gc/">GC</a>,&nbsp;<a href="/tags/python/">Python</a></section>
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"/></svg>&nbsp;<a href="/tags/kubernetes/">Kubernetes</a>,&nbsp;<a href="/tags/k8s/">K8s</a></section>
         <section class="print:!tw-hidden">
             <span><button class="tw-text-fgColor-link-muted hover:tw-text-fgColor-link-muted-hover" onclick="window.history.back();">뒤로</button></span>&nbsp;|&nbsp;<span><a href="/">홈</a></span>
         </section>
     </div>
 
-    <div class="post-nav print:tw-hidden"><a href="/posts/black/" class="prev" rel="prev" title="[Python] Black을 통한 코드 스타일 자동화"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"/></svg>[Python] Black을 통한 코드 스타일 자동화</a>
-            <a href="/posts/python-gil/" class="next" rel="next" title="[Python] GIL">[Python] GIL<svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></a></div>
+    <div class="post-nav print:tw-hidden"><a href="/posts/python-abstract-class/" class="prev" rel="prev" title="[Python] 추상 클래스"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"/></svg>[Python] 추상 클래스</a></div>
 </div>
 </article></div>
         </main><footer class="footer">

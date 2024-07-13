@@ -3,19 +3,19 @@
         <title>Categories - 분류 - Joonshik Tech Blog</title>
         <link>http://localhost:1313/categories/</link>
         <description>Categories - 분류 - Joonshik Tech Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>ko</language><lastBuildDate>Sun, 14 Jul 2024 00:03:11 &#43;0900</lastBuildDate><atom:link href="http://localhost:1313/categories/" rel="self" type="application/rss+xml" /><item>
-    <title>Python</title>
-    <link>http://localhost:1313/categories/python/</link>
-    <pubDate>Sun, 14 Jul 2024 00:03:11 &#43;0900</pubDate><author>
-        <name>저자</name>
-    </author><guid>http://localhost:1313/categories/python/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
+        <generator>Hugo -- gohugo.io</generator><language>ko</language><lastBuildDate>Sun, 14 Jul 2024 01:35:53 &#43;0900</lastBuildDate><atom:link href="http://localhost:1313/categories/" rel="self" type="application/rss+xml" /><item>
     <title>DevOps</title>
     <link>http://localhost:1313/categories/devops/</link>
-    <pubDate>Thu, 11 Jul 2024 23:31:57 &#43;0900</pubDate><author>
+    <pubDate>Sun, 14 Jul 2024 01:35:53 &#43;0900</pubDate><author>
         <name>저자</name>
     </author><guid>http://localhost:1313/categories/devops/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Python</title>
+    <link>http://localhost:1313/categories/python/</link>
+    <pubDate>Sat, 13 Jul 2024 00:07:11 &#43;0900</pubDate><author>
+        <name>저자</name>
+    </author><guid>http://localhost:1313/categories/python/</guid>
     <description><![CDATA[]]></description>
 </item></channel>
 </rss>

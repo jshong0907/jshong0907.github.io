@@ -3,24 +3,38 @@
         <title>Tags - 태그 - Joonshik Tech Blog</title>
         <link>http://localhost:1313/tags/</link>
         <description>Tags - 태그 - Joonshik Tech Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>ko</language><lastBuildDate>Sun, 14 Jul 2024 00:03:11 &#43;0900</lastBuildDate><atom:link href="http://localhost:1313/tags/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>ko</language><lastBuildDate>Sun, 14 Jul 2024 01:35:53 &#43;0900</lastBuildDate><atom:link href="http://localhost:1313/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>K8s</title>
+    <link>http://localhost:1313/tags/k8s/</link>
+    <pubDate>Sun, 14 Jul 2024 01:35:53 &#43;0900</pubDate><author>
+        <name>저자</name>
+    </author><guid>http://localhost:1313/tags/k8s/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Kubernetes</title>
+    <link>http://localhost:1313/tags/kubernetes/</link>
+    <pubDate>Sun, 14 Jul 2024 01:35:53 &#43;0900</pubDate><author>
+        <name>저자</name>
+    </author><guid>http://localhost:1313/tags/kubernetes/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>ABC</title>
     <link>http://localhost:1313/tags/abc/</link>
-    <pubDate>Sun, 14 Jul 2024 00:03:11 &#43;0900</pubDate><author>
+    <pubDate>Sat, 13 Jul 2024 00:07:11 &#43;0900</pubDate><author>
         <name>저자</name>
     </author><guid>http://localhost:1313/tags/abc/</guid>
     <description><![CDATA[]]></description>
 </item><item>
     <title>AbstractClass</title>
     <link>http://localhost:1313/tags/abstractclass/</link>
-    <pubDate>Sun, 14 Jul 2024 00:03:11 &#43;0900</pubDate><author>
+    <pubDate>Sat, 13 Jul 2024 00:07:11 &#43;0900</pubDate><author>
         <name>저자</name>
     </author><guid>http://localhost:1313/tags/abstractclass/</guid>
     <description><![CDATA[]]></description>
 </item><item>
     <title>Package</title>
     <link>http://localhost:1313/tags/package/</link>
-    <pubDate>Sun, 14 Jul 2024 00:03:11 &#43;0900</pubDate><author>
+    <pubDate>Sat, 13 Jul 2024 00:07:11 &#43;0900</pubDate><author>
         <name>저자</name>
     </author><guid>http://localhost:1313/tags/package/</guid>
     <description><![CDATA[]]></description>
@@ -58,20 +72,6 @@
     <pubDate>Thu, 11 Jul 2024 02:51:18 &#43;0900</pubDate><author>
         <name>저자</name>
     </author><guid>http://localhost:1313/tags/python/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>GC</title>
-    <link>http://localhost:1313/tags/gc/</link>
-    <pubDate>Wed, 10 Jul 2024 16:20:07 &#43;0900</pubDate><author>
-        <name>저자</name>
-    </author><guid>http://localhost:1313/tags/gc/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>Black</title>
-    <link>http://localhost:1313/tags/black/</link>
-    <pubDate>Sun, 07 Jul 2024 19:59:08 &#43;0900</pubDate><author>
-        <name>저자</name>
-    </author><guid>http://localhost:1313/tags/black/</guid>
     <description><![CDATA[]]></description>
 </item></channel>
 </rss>

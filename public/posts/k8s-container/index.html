@@ -42,7 +42,7 @@
                             "url": "http://localhost:1313/posts/k8s-container/thumbnail.png",
                             "width":  1536 ,
                             "height":  804 
-                        }],"genre": "posts","keywords":["container","virtualization"],"wordcount":  1593 ,
+                        }],"genre": "posts","keywords":["container","virtualization"],"wordcount":  1670 ,
         "url": "http://localhost:1313/posts/k8s-container/","datePublished": "2024-07-11T23:31:57+09:00","dateModified": "2024-07-11T23:31:57+09:00","publisher": {
             "@type": "Organization",
             "name": "저자"},"author": [{
@@ -80,8 +80,8 @@
                 }
             }
          } else { 
-            if ('' === 'light' || '' === 'dark') 
-                setTheme(''), saveTheme(''); 
+            if ('light' === 'light' || 'light' === 'dark') 
+                setTheme('light'), saveTheme('light'); 
             else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');
         }
         let metaColors = {'light': '#f8f8f8','dark': '#161b22'}
@@ -98,7 +98,10 @@
             <div class="menu-inner"><a class="menu-item"
                     href="/posts/" > Posts </a><a class="menu-item"
                     href="/tags/" > Tags </a><a class="menu-item"
-                    href="/categories/" > Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                    href="/categories/" > Categories </a><a class="menu-item"
+                    href="/series/" > Series </a><a class="menu-item"
+                    href="https://github.com/jshong0907/jshong0907.github.io"  title="GitHub" 
+                    rel="noopener noreferrer" target="_blank" ><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d='M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z'/></svg>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
                     <input type="text"
                         placeholder="제목이나 내용으로 검색..."
                         id="search-input-desktop">
@@ -151,7 +154,8 @@
                 <button class="search-cancel" id="search-cancel-mobile">
                     취소
                 </button>
-            </div><a class="menu-item" href="/posts/" title="" >Posts</a><a class="menu-item" href="/tags/" title="" >Tags</a><a class="menu-item" href="/categories/" title="" >Categories</a><button class="menu-item theme-switch tw-w-full" aria-label="테마 변경">
+            </div><a class="menu-item" href="/posts/" title="" >Posts</a><a class="menu-item" href="/tags/" title="" >Tags</a><a class="menu-item" href="/categories/" title="" >Categories</a><a class="menu-item" href="/series/" title="" >Series</a><a class="menu-item" href="https://github.com/jshong0907/jshong0907.github.io" title="GitHub" 
+                rel="noopener noreferrer" target="_blank" ><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d='M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z'/></svg></a><button class="menu-item theme-switch tw-w-full" aria-label="테마 변경">
                 <svg class="icon"
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"/></svg>
             </button></div>
@@ -163,7 +167,49 @@
 <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
 </div><main class="main">
-            <div class="container"><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "false")</script><article class="page single print:!tw-w-full print:!tw-max-w-none print:!tw-m-0 print:!tw-p-0"><h1 class="single-title">[DevOps] 컨테이너란?</h1><div class="post-meta">
+            <div class="container"><div class="toc print:!tw-hidden" id="toc-auto">
+        <h2 class="toc-title">목차</h2>
+        <div class="toc-content always-active" id="toc-content-auto"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#가상화">가상화</a>
+      <ul>
+        <li><a href="#가상화-장점">가상화 장점</a></li>
+      </ul>
+    </li>
+    <li><a href="#virtual-machine-vm">Virtual Machine (VM)</a></li>
+    <li><a href="#컨테이너">컨테이너</a>
+      <ul>
+        <li><a href="#컨테이너-vs-vm">컨테이너 vs VM</a></li>
+        <li><a href="#컨테이너의-장점">컨테이너의 장점</a>
+          <ul>
+            <li><a href="#무거운-리소스와-부팅-시간">무거운 리소스와 부팅 시간</a></li>
+            <li><a href="#호스트-os-의존성">호스트 OS 의존성</a></li>
+            <li><a href="#보안-및-격리">보안 및 격리</a></li>
+          </ul>
+        </li>
+        <li><a href="#컨테이너-표준">컨테이너 표준</a></li>
+      </ul>
+    </li>
+    <li><a href="#컨테이너의-구조">컨테이너의 구조</a>
+      <ul>
+        <li><a href="#pivot-root">pivot root</a></li>
+        <li><a href="#네임스페이스">네임스페이스</a>
+          <ul>
+            <li><a href="#마운트-네임스페이스">마운트 네임스페이스</a></li>
+            <li><a href="#uts-네임스페이스">UTS 네임스페이스</a></li>
+            <li><a href="#ipc-네임스페이스">IPC 네임스페이스</a></li>
+            <li><a href="#pid-네임스페이스">PID 네임스페이스</a></li>
+            <li><a href="#cgroup-네임스페이스">cgroup 네임스페이스</a></li>
+            <li><a href="#네트워크-네임스페이스">네트워크 네임스페이스</a></li>
+            <li><a href="#user-네임스페이스">User 네임스페이스</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#컨테이너-계층화">컨테이너 계층화</a></li>
+  </ul>
+</nav></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single print:!tw-w-full print:!tw-max-w-none print:!tw-m-0 print:!tw-p-0"><h1 class="single-title">[DevOps] 컨테이너란?</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><span class='author'>
         <span class='screen-reader-text'>  </span><a href='http://localhost:1313/authors/joonshik'><img class="tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px] tw-mr-1"  src="https://www.gravatar.com/avatar/3f90f554dd3b2f7299fb566f78b21bb3?s=240&amp;d=mp"   alt="JoonShik avatar" height="16" width="16">JoonShik</a></span>
@@ -172,9 +218,9 @@
             <div class="post-meta-line"><svg class="icon"
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"/></svg>&nbsp;<time datetime="2024-07-11">2024-07-11</time>&nbsp;<svg class="icon"
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M402.3 344.9l32-32c5-5 13.7-1.5 13.7 5.7V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h273.5c7.1 0 10.7 8.6 5.7 13.7l-32 32c-1.5 1.5-3.5 2.3-5.7 2.3H48v352h352V350.5c0-2.1.8-4.1 2.3-5.6zm156.6-201.8L296.3 405.7l-90.4 10c-26.2 2.9-48.5-19.2-45.6-45.6l10-90.4L432.9 17.1c22.9-22.9 59.9-22.9 82.7 0l43.2 43.2c22.9 22.9 22.9 60 .1 82.8zM460.1 174L402 115.9 216.2 301.8l-7.3 65.3 65.3-7.3L460.1 174zm64.8-79.7l-43.2-43.2c-4.1-4.1-10.8-4.1-14.8 0L436 82l58.1 58.1 30.9-30.9c4-4.2 4-10.8-.1-14.9z"/></svg>&nbsp;<time datetime="2024-07-11">2024-07-11</time>&nbsp;<svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;1593 단어&nbsp;<svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;1670 단어&nbsp;<svg class="icon"
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg>&nbsp;읽는데 약 8분&nbsp;</div>
-        </div><div class="details toc print:!tw-block" id="toc-static"  kept="true">
+        </div><div class="details toc print:!tw-block" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>목차</span>
                     <span class="details-icon"><svg class="icon"
@@ -191,13 +237,30 @@
     <li><a href="#컨테이너">컨테이너</a>
       <ul>
         <li><a href="#컨테이너-vs-vm">컨테이너 vs VM</a></li>
+        <li><a href="#컨테이너의-장점">컨테이너의 장점</a>
+          <ul>
+            <li><a href="#무거운-리소스와-부팅-시간">무거운 리소스와 부팅 시간</a></li>
+            <li><a href="#호스트-os-의존성">호스트 OS 의존성</a></li>
+            <li><a href="#보안-및-격리">보안 및 격리</a></li>
+          </ul>
+        </li>
         <li><a href="#컨테이너-표준">컨테이너 표준</a></li>
       </ul>
     </li>
     <li><a href="#컨테이너의-구조">컨테이너의 구조</a>
       <ul>
         <li><a href="#pivot-root">pivot root</a></li>
-        <li><a href="#네임스페이스">네임스페이스</a></li>
+        <li><a href="#네임스페이스">네임스페이스</a>
+          <ul>
+            <li><a href="#마운트-네임스페이스">마운트 네임스페이스</a></li>
+            <li><a href="#uts-네임스페이스">UTS 네임스페이스</a></li>
+            <li><a href="#ipc-네임스페이스">IPC 네임스페이스</a></li>
+            <li><a href="#pid-네임스페이스">PID 네임스페이스</a></li>
+            <li><a href="#cgroup-네임스페이스">cgroup 네임스페이스</a></li>
+            <li><a href="#네트워크-네임스페이스">네트워크 네임스페이스</a></li>
+            <li><a href="#user-네임스페이스">User 네임스페이스</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><a href="#컨테이너-계층화">컨테이너 계층화</a></li>
@@ -238,6 +301,14 @@ Image(Container) = filesystem/libraries</p>
 </div></div></div>
 <p>컨테이너와 가상 머신은 각각 장단점을 가지고 있고 필요한 상황에 따라 선택하여 사용하거나 혼합하여 사용하기도 합니다.</p>
 <p>AWS, GCP 등의 CSP에서는 가상 머신 기반으로 인프라를 구성하고 컨테이너 형태로 어플리케이션을 구성하여 제공하고 있습니다.</p>
+<h3 id="컨테이너의-장점" class="headerLink">
+    <a href="#%ec%bb%a8%ed%85%8c%ec%9d%b4%eb%84%88%ec%9d%98-%ec%9e%a5%ec%a0%90" class="header-mark" aria-label="Header mark for '컨테이너의 장점'"></a>컨테이너의 장점</h3><p>컨테이너는 다음과 같은 장점으로 다양한 서비스에서 널리 사용되고 있습니다.</p>
+<ul>
+<li>경량화: 호스트 OS의 커널을 공유하지 않아 가상 머신에 비하여 훨씬 가벼워 더 빠르게 시작하고 배포할 수 있습니다.</li>
+<li>이식성: 컨테이너는 어플리케이션과 그 종속된 라이브러리와 설정 등을 패키지화하여 동일한 방식으로 실행할 수 있게 합니다. 이는 여러 환경에 쉽게 서비스를 이식할 수 있도록 합니다.</li>
+<li>스케일링: 컨테이너 기반 서비스는 여러 개의 인스턴스를 생성하고 로드밸런싱 하는 방식으로 수평 확장에 용이합니다.</li>
+<li>손쉬운 배포: 컨테이너는 CI/CD 파이프라인과 잘 통합되어 빠른 배포와 롤백을 가능하게 합니다.</li>
+</ul>
 <h4 id="무거운-리소스와-부팅-시간" class="headerLink">
     <a href="#%eb%ac%b4%ea%b1%b0%ec%9a%b4-%eb%a6%ac%ec%86%8c%ec%8a%a4%ec%99%80-%eb%b6%80%ed%8c%85-%ec%8b%9c%ea%b0%84" class="header-mark" aria-label="Header mark for '무거운 리소스와 부팅 시간'"></a>무거운 리소스와 부팅 시간</h4><p>가상 머신은 개별 커널을 보유하기 때문에 메모리와 디스크 사용량이 많고 개별 커널을 부팅해야하므로 부팅 시간또한 매우 깁니다.</p>
 <p>반면 컨테이너는 호스트 OS의 커널을 공유하므로 메모리와 디스크 샤용량이 적고 빠르게 시작될 수 있다는 장점이 있습니다.</p>

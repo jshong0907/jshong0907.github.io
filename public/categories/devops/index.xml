@@ -3,7 +3,15 @@
         <title>DevOps - 분류 - Joonshik Tech Blog</title>
         <link>http://localhost:1313/categories/devops/</link>
         <description>DevOps - 분류 - Joonshik Tech Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>ko</language><lastBuildDate>Thu, 11 Jul 2024 23:31:57 &#43;0900</lastBuildDate><atom:link href="http://localhost:1313/categories/devops/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>ko</language><lastBuildDate>Sun, 14 Jul 2024 01:35:53 &#43;0900</lastBuildDate><atom:link href="http://localhost:1313/categories/devops/" rel="self" type="application/rss+xml" /><item>
+    <title>[DevOps] 쿠버네티스란?</title>
+    <link>http://localhost:1313/posts/k8s-basic/</link>
+    <pubDate>Sun, 14 Jul 2024 01:35:53 &#43;0900</pubDate><author>
+                        <name>JoonShik</name><uri>http://localhost:1313/authors/joonshik</uri><email>jshong0907@gmail.com</email></author><guid>http://localhost:1313/posts/k8s-basic/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/k8s-basic/thumbnail.png" referrerpolicy="no-referrer">
+            </div>쿠버네티스는 컨테이너화된 어플리케이션을 배포하기 위한 오픈소스 오케스트레이터입니다.]]></description>
+</item><item>
     <title>[DevOps] 컨테이너란?</title>
     <link>http://localhost:1313/posts/k8s-container/</link>
     <pubDate>Thu, 11 Jul 2024 23:31:57 &#43;0900</pubDate><author>

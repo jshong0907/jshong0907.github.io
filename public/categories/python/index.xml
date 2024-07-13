@@ -3,7 +3,15 @@
         <title>Python - 분류 - Joonshik Tech Blog</title>
         <link>http://localhost:1313/categories/python/</link>
         <description>Python - 분류 - Joonshik Tech Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>ko</language><lastBuildDate>Thu, 11 Jul 2024 02:51:18 &#43;0900</lastBuildDate><atom:link href="http://localhost:1313/categories/python/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>ko</language><lastBuildDate>Sun, 14 Jul 2024 00:03:11 &#43;0900</lastBuildDate><atom:link href="http://localhost:1313/categories/python/" rel="self" type="application/rss+xml" /><item>
+    <title>[Python] 추상 클래스</title>
+    <link>http://localhost:1313/posts/python-abstract-class/</link>
+    <pubDate>Sun, 14 Jul 2024 00:03:11 &#43;0900</pubDate><author>
+                        <name>JoonShik</name><uri>http://localhost:1313/authors/joonshik</uri><email>jshong0907@gmail.com</email></author><guid>http://localhost:1313/posts/python-abstract-class/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/python-abstract-class/thumbnail.png" referrerpolicy="no-referrer">
+            </div>추상 클래스는 하나 이상의 추상 메소드를 포함하는 클래스입니다. Python에서는 어떻게 추상 클래스를 생성할까요?]]></description>
+</item><item>
     <title>[Python] GIL</title>
     <link>http://localhost:1313/posts/python-gil/</link>
     <pubDate>Thu, 11 Jul 2024 02:51:18 &#43;0900</pubDate><author>
